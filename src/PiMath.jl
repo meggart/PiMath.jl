@@ -73,5 +73,8 @@ Base.linspace{T<:Integer}(start::T,stop::MulOfPi,len::Real)=PiRange(linspace(sta
 Base.linspace{T<:AbstractFloat}(start::MulOfPi,stop::T,len::Real)=PiRange(linspace(start.f,stop,len))
 Base.linspace{T<:Integer}(start::MulOfPi,stop::T,len::Real)=PiRange(linspace(start.f,stop,len))
 
+#Some sin and cosine methods
+Base.sin{T<:Integer}(x::MulOfPi{T})=zero(Float64)
+Base.cos{T<:Integer}(x::MulOfPi{T})=iseven(x.f) ? one(Float64) : -one(Float64)
 
 end # module
